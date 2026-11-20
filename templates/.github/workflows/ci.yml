@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # JIG:SETUP — 스택별 툴체인 설치 단계. bootstrap/adopt 가 프로젝트에 맞게 채운다.
+      - name: jig.json commands
+        run: |
+          for key in lint typecheck test; do
+            cmd=$(jq -r --arg k "$key" '.commands[$k] // empty' jig.json)
+            [ -z "$cmd" ] && continue
+            echo "::group::$key: $cmd"
+            bash -c "$cmd"
+            echo "::endgroup::"
+          done

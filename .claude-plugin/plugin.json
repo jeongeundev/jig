@@ -1,0 +1,10 @@
+{
+  "name": "jig",
+  "version": "0.1.0",
+  "description": "프로젝트마다 같은 방식으로 일하게 하는 하네스: 명세(SDD) → 테스트 먼저(TDD) → 증거로 검증.",
+  "author": { "name": "jeongeundev" },
+  "homepage": "https://github.com/jeongeundev/jig",
+  "repository": "https://github.com/jeongeundev/jig",
+  "license": "MIT",
+  "keywords": ["harness", "sdd", "tdd", "verification", "claude-code", "codex"]
+}
